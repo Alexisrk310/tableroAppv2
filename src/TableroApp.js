@@ -1,7 +1,12 @@
 import React from 'react';
+import Header from './components/Header';
 
 const TableroApp = () => {
-	return <div></div>;
+	return (
+		<>
+			<Header />
+		</>
+	);
 };
 
 export default TableroApp;
