@@ -6,7 +6,7 @@ export const AppRouter = () => {
     <Router>
       <div>
         <Switch>
-          <Route path="/about" component={ } />
+          <Route path="/about" component="" />
         </Switch>
       </div>
     </Router>
