@@ -1,3 +1,10 @@
+@import './base/base.scss';
 @import './components/home.scss';
 //Header
 @import './components/header.scss';
+//login and register
+@import './components/auth';
+//About
+@import './components/about.scss';
+//Board
+@import './components/board.scss';
