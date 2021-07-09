@@ -1,6 +1,12 @@
 // variables u clases universales
 
 $main: #17a2b8;
+
+html,
+body {
+	width: 100vw;
+	height: 100vh;
+}
 .pointer {
 	cursor: pointer;
 }

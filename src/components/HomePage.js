@@ -6,15 +6,25 @@ export const HomePage = () => {
 		<>
 			<Header />
 
-			<div className="board-home d-flex flex-wrap mt-5 ml-4 ">
-				<div className="box"></div>
-				<div className="box"></div>
-				<div className="box"></div>
-				<div className="box"></div>
-				<div className="box"></div>
-				<div className="box"></div>
-				<div className="box"></div>
-				<div className="box"></div>
+			<div className="board-home d-flex flex-wrap  ">
+				<div className="content-board pt-3 ">
+					<div className="box"></div>
+					<div className="box"></div>
+					<div className="box"></div>
+					<div className="box"></div>
+					<div className="box"></div>
+					<div className="box"></div>
+					<div className="box"></div>
+					<div className="box"></div>
+					<div className="box"></div>
+					<div className="box"></div>
+					<div className="box"></div>
+					<div className="box"></div>
+					<div className="box"></div>
+					<div className="box"></div>
+					<div className="box"></div>
+					<div className="box"></div>
+				</div>
 			</div>
 		</>
 	);
