@@ -1,9 +1,24 @@
+.board-home {
+	background-color: $main;
+}
+.add-note {
+	position: fixed;
+	bottom: 5px;
+	right: 10px;
+	background-color: transparent;
+
+	color: white;
+	border: none;
+	font-size: 30px;
+}
+.add-none-awesome {
+	font-size: 40px;
+}
 .content-board {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	background-color: $main;
-	border-top: 3px solid white;
+	// border-top: 3px solid white;
 	// margin-top: 17px;
 }
 .box {

@@ -4,7 +4,7 @@ const Header = () => {
 	return (
 		<div className=" header-centrado fixed-top">
 			<nav className="navbar navbar-expand-md navbar-dark main">
-				<a className="navbar-brand  ml-md-5 mx-sm-auto" href="/">
+				<a className="navbar-brand mx-auto mx-sm-auto" href="/">
 					Tablero App
 				</a>
 				<button
