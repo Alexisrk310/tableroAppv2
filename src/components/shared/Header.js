@@ -24,7 +24,8 @@ const Header = () => {
 								Tablero <span className="sr-only">(current)</span>
 							</a>
 						</li>
-						<li className="nav-item pointer">
+						<li classNa
+						me="nav-item pointer">
 							<a className="nav-link" href="/about">
 								Como usar
 							</a>

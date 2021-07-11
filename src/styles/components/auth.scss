@@ -2,23 +2,29 @@
 	width: 100vw;
 	height: 100vh;
 	background-color: $main;
-	padding-top: 120px;
+	display: flex;
+	align-items: center;
 }
 .auth {
-	width: 1000px;
+	width: 500px;
 	height: 500px;
 	background-color: #f9f9f9;
 	display: flex;
-	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
 	box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
 	border-radius: 2%;
 }
-.login {
-	padding: 60px 70px;
-}
-.register {
-	padding: 50px 70px;
-}
 .input-long {
 	width: 345px;
+}
+.auth__buttons{
+	display: flex;
+	flex-direction: column;
+}
+
+.auth_login{
+	border:none;
+	background-color: transparent;
+	
 }
