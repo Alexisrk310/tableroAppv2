@@ -9,6 +9,7 @@ import { About } from '../components/About';
 import { Auth } from '../components/Auth';
 import { Board } from '../components/Board';
 
+
 export const AppRouter = () => {
 	return (
 		<Router>
