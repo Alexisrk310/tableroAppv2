@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { apiLogin } from '../helpers/apiLogin';
+const Swal = require('sweetalert2');
 
 export const Auth = ({ history }) => {
 	const [openAndClose, setOpenAndClose] = useState(false);
@@ -31,11 +32,19 @@ export const Auth = ({ history }) => {
 	//LOGIN
 	const handleLogin = async (e) => {
 		e.preventDefault();
-		const { user } = await apiLogin('login', inputValueLogin).then((resp) =>
-			resp.json()
-		);
+		const data = await apiLogin('login', inputValueLogin);
+		const resp = await data.json();
+		const { user } = resp;
+		console.log(resp);
+
+		if (user !== undefined) {
+			history.push('/');
+		} else {
+			const { msg } = resp;
+			console.log(msg);
+			Swal.fire('Error', msg, 'error');
+		}
 		localStorage.setItem('login', JSON.stringify(user));
-		history.push('/');
 	};
 	//REGISTER
 	const handleRegister = async (e) => {
@@ -81,6 +90,7 @@ export const Auth = ({ history }) => {
 								/>
 								<label className="form-check-label">Check me out</label>
 							</div>
+
 							<div className="auth__buttons">
 								<button type="submit" className="btn btn-primary">
 									Submit <i className="fas fa-arrow-circle-right"></i>
