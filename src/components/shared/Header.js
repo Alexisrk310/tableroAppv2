@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => {
 	return (
-		<div className=" header-centrado fixed-top">
+		<div className="header-centrado fixed-top">
 			<nav className="navbar navbar-expand-md navbar-dark main">
 				<a className="navbar-brand mx-auto mx-sm-auto" href="/">
 					Tablero App
