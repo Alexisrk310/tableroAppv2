@@ -7,6 +7,11 @@ export const Auth = ({ history }) => {
 		email: 'alexander@gmail.com',
 		password: '123456',
 	});
+	const [inputValueRegister, setInputValueRegister] = useState({
+		rName: 'alexis',
+		rEmail: 'alexisrk310@gmail.com',
+		rPassword: 'hermanos123',
+	});
 
 	const handleView = () => setOpenAndClose(!openAndClose);
 
@@ -16,16 +21,30 @@ export const Auth = ({ history }) => {
 			[e.target.name]: e.target.value,
 		});
 	};
+	const handleInputRegister = (e) => {
+		setInputValueRegister({
+			...inputValueRegister,
+			[e.target.name]: e.target.value,
+		});
+	};
 	const { email, password } = inputValueLogin;
+	//LOGIN
 	const handleLogin = async (e) => {
 		e.preventDefault();
-		const { user } = await apiLogin(inputValueLogin).then((resp) =>
+		const { user } = await apiLogin('login', inputValueLogin).then((resp) =>
 			resp.json()
 		);
 		localStorage.setItem('login', JSON.stringify(user));
 		history.push('/');
 	};
-
+	//REGISTER
+	const handleRegister = async (e) => {
+		e.preventDefault();
+		const data = await apiLogin('register', inputValueRegister);
+		const resp = await data.json();
+		console.log(resp);
+	};
+	const { rName, rEmail, rPassword } = inputValueRegister;
 	return (
 		<div className="body-auth">
 			<div className="auth mx-auto">
@@ -75,23 +94,38 @@ export const Auth = ({ history }) => {
 						</form>
 					) : (
 						<div className="register">
-							<form>
+							<form onSubmit={handleRegister}>
 								<h1>Registrate</h1>
 								<div className="mb-3">
 									<label className="form-label input-long">Nombre</label>
 									<input
-										type="email"
+										type="text"
 										className="form-control input-long"
 										aria-describedby="emailHelp"
+										onChange={handleInputRegister}
+										value={rName}
+										name="rName"
 									/>
 								</div>
 								<div className="mb-3">
 									<label className="form-label">Correo electronico</label>
-									<input type="password" className="form-control input-long" />
+									<input
+										type="email"
+										className="form-control input-long"
+										onChange={handleInputRegister}
+										value={rEmail}
+										name="rEmail"
+									/>
 								</div>
 								<div className="mb-3">
 									<label className="form-label">Contraseña</label>
-									<input type="password" className="form-control input-long" />
+									<input
+										type="password"
+										className="form-control input-long"
+										onChange={handleInputRegister}
+										value={rPassword}
+										name="rPassword"
+									/>
 								</div>
 
 								<div className="form-text">

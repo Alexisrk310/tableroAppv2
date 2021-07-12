@@ -1,5 +1,6 @@
-export const apiLogin = (data) => {
-	const url = 'http://localhost:8081/api/auth/login';
+export const apiLogin = (endpoint, data) => {
+	const url = `http://localhost:8081/api/auth/${endpoint}`;
+
 	return fetch(url, {
 		method: 'POST',
 		headers: {

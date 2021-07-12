@@ -2,13 +2,13 @@ import Modal from 'react-modal';
 import React from 'react';
 
 export const AddNote = ({ setButtonAddNote }) => {
-	console.log('Hola');
 	const handleExitNote = () => {
 		setButtonAddNote(false);
 	};
 	return (
 		<>
 			<Modal
+				ariaHideApp={false}
 				isOpen={true}
 				aria={{
 					labelledby: 'heading',
@@ -38,11 +38,11 @@ export const AddNote = ({ setButtonAddNote }) => {
 							onClick={handleExitNote}
 							type="submit"
 							className="btn btn-primary">
-							Enviar <i class="fas fa-arrow-circle-right"></i>
+							Enviar <i className="fas fa-arrow-circle-right"></i>
 						</button>
 
 						<button className="btn btn-danger mt-2" onClick={handleExitNote}>
-							Cerrar <i class="fas fa-sign-in-alt"></i>
+							Cerrar <i className="fas fa-sign-in-alt"></i>
 						</button>
 					</div>
 				</form>
