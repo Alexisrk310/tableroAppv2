@@ -19,6 +19,11 @@ const Header = () => {
 				</button>
 				<div className="collapse navbar-collapse " id="navbarNavDropdown">
 					<ul className="navbar-nav mx-sm-1 mx-md-auto">
+						<li className="nav-item pointer">
+							<a className="nav-link" href="/home">
+								<i class="fas fa-home"></i>
+							</a>
+						</li>
 						<li className="nav-item active pointer">
 							<a className="nav-link" href="/">
 								Tablero <span className="sr-only">(current)</span>
