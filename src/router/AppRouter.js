@@ -8,7 +8,8 @@ import {
 import { About } from "../components/About";
 import { Auth } from "../components/Auth";
 import { Board } from "../components/Board";
-import { home } from "../components/shared/home";import GuardRoute from "./PrivateRoute";
+import { Home } from "../components/Home";
+import GuardRoute from "./PrivateRoute";
 ;
 
 export const AppRouter = () => {
@@ -34,7 +35,7 @@ export const AppRouter = () => {
           <Route
             path="/"
             exact
-            component={home}
+            component={Home}
           />
 
           <Redirect to="/" />
