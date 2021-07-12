@@ -38,11 +38,11 @@ export const AddNote = ({ setButtonAddNote }) => {
 							onClick={handleExitNote}
 							type="submit"
 							className="btn btn-primary">
-							Enviar
+							Enviar <i class="fas fa-arrow-circle-right"></i>
 						</button>
 
 						<button className="btn btn-danger mt-2" onClick={handleExitNote}>
-							Cerrar
+							Cerrar <i class="fas fa-sign-in-alt"></i>
 						</button>
 					</div>
 				</form>

@@ -1,10 +1,10 @@
 .board-home {
-	background-color: $main;
+	height: 100vh;
 }
 .add-note {
 	position: fixed;
 	bottom: 5px;
-	right: 10px;
+	right: 15px;
 	background-color: transparent;
 
 	color: white;
@@ -12,14 +12,16 @@
 	font-size: 30px;
 }
 .add-none-awesome {
-	font-size: 40px;
+	font-size: 50px;
 }
 .content-board {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	// border-top: 3px solid white;
-	// margin-top: 17px;
+	width: 100vw;
+	min-height: 100vh;
+	background-color: $main;
+	padding-top: 70px;
 }
 .box {
 	width: 300px;

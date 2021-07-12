@@ -18,13 +18,11 @@
 .input-long {
 	width: 345px;
 }
-.auth__buttons{
+.auth__buttons {
 	display: flex;
 	flex-direction: column;
 }
 
-.auth_login{
-	border:none;
-	background-color: transparent;
-	
+.auth_login {
+	text-decoration: underline;
 }
