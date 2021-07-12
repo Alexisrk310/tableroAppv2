@@ -42,7 +42,7 @@ export const AddNote = ({ setButtonAddNote }) => {
 						</button>
 
 						<button className="btn btn-danger mt-2" onClick={handleExitNote}>
-							Cerrar <i class="fas fa-sign-in-alt"></i>
+							Cerrar <i className="fas fa-sign-in-alt"></i>
 						</button>
 					</div>
 				</form>
