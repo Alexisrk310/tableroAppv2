@@ -1,29 +1,20 @@
 import React from "react";
-import { Redirect, Route } from "react-router";
-import PropTypes from "prop-types";
+import { Route, Redirect } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
-export const PrivateRoute = ({
-  isAuthenticated,
-  component: Component,
-  ...rest
-}) => {
-  return (
-    <Route
-      {...rest}
-      component={(props) =>
-        isAuthenticated ? (
-          // si esta log pasa
-          <Component {...props} />
-        ) : (
-          // si no pa login
-          <Redirect to="/login" />
-        )
-      }
-    />
-  );
-};
+const isAuthenticated = () => {
+   const user = JSON.parse(localStorage.getItem("login"));
+   console.log(user)
+  let isValid = true;
 
-PrivateRoute.prototypes = {
-  isAuthenticated: PropTypes.bool.isRequired,
-  component: PropTypes.func.isRequired,
+  try {
+    isValid = jwt_decode(user.token);
+  } catch (err) {
+    return false;
+  }
+  return isValid;
 };
+const GuardRoute = (props) =>
+  isAuthenticated() ? <Route {...props} /> : <Redirect to="/" />;
+
+export default GuardRoute;

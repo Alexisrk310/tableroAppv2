@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { startLogin, startRegister } from '../actions/Auth';
 import { apiLogin } from '../helpers/apiLogin';
-const Swal = require('sweetalert2');
 
 export const Auth = ({ history }) => {
 	const [openAndClose, setOpenAndClose] = useState(false);
@@ -29,31 +29,21 @@ export const Auth = ({ history }) => {
 		});
 	};
 	const { email, password } = inputValueLogin;
+	const { rName, rEmail, rPassword } = inputValueRegister;
 	//LOGIN
 	const handleLogin = async (e) => {
 		e.preventDefault();
-		const data = await apiLogin('login', inputValueLogin);
-		const resp = await data.json();
-		const { user } = resp;
-		console.log(resp);
-
-		if (user !== undefined) {
-			history.push('/');
-		} else {
-			const { msg } = resp;
-			console.log(msg);
-			Swal.fire('Error', msg, 'error');
-		}
-		localStorage.setItem('login', JSON.stringify(user));
+		startLogin(email, password);
+		history.push("/")
+		
 	};
+	
 	//REGISTER
 	const handleRegister = async (e) => {
 		e.preventDefault();
-		const data = await apiLogin('register', inputValueRegister);
-		const resp = await data.json();
-		console.log(resp);
+		startRegister(rName, rEmail, rPassword)
+		history.push("/");
 	};
-	const { rName, rEmail, rPassword } = inputValueRegister;
 	return (
 		<div className="body-auth">
 			<div className="auth mx-auto">
