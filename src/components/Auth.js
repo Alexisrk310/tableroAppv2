@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import { apiLogin } from '../helpers/apiLogin';
+const Swal = require('sweetalert2');
 
 export const Auth = ({ history }) => {
 	const [openAndClose, setOpenAndClose] = useState(false);
 	const [inputValueLogin, setInputValueLogin] = useState({
 		email: 'alexander@gmail.com',
 		password: '123456',
+	});
+	const [inputValueRegister, setInputValueRegister] = useState({
+		rName: 'alexis',
+		rEmail: 'alexisrk310@gmail.com',
+		rPassword: 'hermanos123',
 	});
 
 	const handleView = () => setOpenAndClose(!openAndClose);
@@ -16,16 +22,38 @@ export const Auth = ({ history }) => {
 			[e.target.name]: e.target.value,
 		});
 	};
+	const handleInputRegister = (e) => {
+		setInputValueRegister({
+			...inputValueRegister,
+			[e.target.name]: e.target.value,
+		});
+	};
 	const { email, password } = inputValueLogin;
+	//LOGIN
 	const handleLogin = async (e) => {
 		e.preventDefault();
-		const { user } = await apiLogin(inputValueLogin).then((resp) =>
-			resp.json()
-		);
-		localStorage.setItem('login', JSON.stringify(user));
-		history.push('/');
-	};
+		const data = await apiLogin('login', inputValueLogin);
+		const resp = await data.json();
+		const { user } = resp;
+		console.log(resp);
 
+		if (user !== undefined) {
+			history.push('/');
+		} else {
+			const { msg } = resp;
+			console.log(msg);
+			Swal.fire('Error', msg, 'error');
+		}
+		localStorage.setItem('login', JSON.stringify(user));
+	};
+	//REGISTER
+	const handleRegister = async (e) => {
+		e.preventDefault();
+		const data = await apiLogin('register', inputValueRegister);
+		const resp = await data.json();
+		console.log(resp);
+	};
+	const { rName, rEmail, rPassword } = inputValueRegister;
 	return (
 		<div className="body-auth">
 			<div className="auth mx-auto">
@@ -62,6 +90,7 @@ export const Auth = ({ history }) => {
 								/>
 								<label className="form-check-label">Check me out</label>
 							</div>
+
 							<div className="auth__buttons">
 								<button type="submit" className="btn btn-primary">
 									Submit <i className="fas fa-arrow-circle-right"></i>
@@ -75,23 +104,38 @@ export const Auth = ({ history }) => {
 						</form>
 					) : (
 						<div className="register">
-							<form>
+							<form onSubmit={handleRegister}>
 								<h1>Registrate</h1>
 								<div className="mb-3">
 									<label className="form-label input-long">Nombre</label>
 									<input
-										type="email"
+										type="text"
 										className="form-control input-long"
 										aria-describedby="emailHelp"
+										onChange={handleInputRegister}
+										value={rName}
+										name="rName"
 									/>
 								</div>
 								<div className="mb-3">
 									<label className="form-label">Correo electronico</label>
-									<input type="password" className="form-control input-long" />
+									<input
+										type="email"
+										className="form-control input-long"
+										onChange={handleInputRegister}
+										value={rEmail}
+										name="rEmail"
+									/>
 								</div>
 								<div className="mb-3">
 									<label className="form-label">Contraseña</label>
-									<input type="password" className="form-control input-long" />
+									<input
+										type="password"
+										className="form-control input-long"
+										onChange={handleInputRegister}
+										value={rPassword}
+										name="rPassword"
+									/>
 								</div>
 
 								<div className="form-text">
