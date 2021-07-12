@@ -10,7 +10,6 @@ import { Auth } from "../components/Auth";
 import { Board } from "../components/Board";
 import { Home } from "../components/Home";
 import GuardRoute from "./PrivateRoute";
-;
 
 export const AppRouter = () => {
   return (
@@ -19,7 +18,6 @@ export const AppRouter = () => {
         <Switch>
           <GuardRoute
             path="/board"
-            exact
             component={Board}
           />
           <Route
