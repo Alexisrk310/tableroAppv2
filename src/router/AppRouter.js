@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+<<<<<<< HEAD
 	BrowserRouter as Router,
 	Route,
 	Switch,
@@ -19,6 +20,43 @@ export const AppRouter = () => {
 					<Route path="/about" exact component={About} />
 					<Route path="/auth" exact component={Auth} />
 					<Route path="/" exact component={Home} />
+=======
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
+import { About } from "../components/About";
+import { Auth } from "../components/Auth";
+import { Board } from "../components/Board";
+import { Home } from "../components/Home";
+import GuardRoute from "./PrivateRoute";
+
+export const AppRouter = () => {
+  return (
+    <Router>
+      <div>
+        <Switch>
+          <GuardRoute
+            path="/board"
+            component={Board}
+          />
+          <Route
+            path="/about"
+            exact
+            component={About}
+          />
+          <Route
+            path="/auth"
+            exact
+            component={Auth}
+          />
+          <Route
+            path="/"
+            exact
+            component={Home}
+          />
+>>>>>>> fdd4df54cf467222c4dbee63ec91db604473b19c
 
 					<Redirect to="/" />
 				</Switch>
