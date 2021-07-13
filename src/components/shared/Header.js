@@ -25,7 +25,7 @@ const Header = () => {
 							</a>
 						</li>
 						<li className="nav-item active pointer">
-							<a className="nav-link" href="/">
+							<a className="nav-link" href="/board">
 								Tablero <span className="sr-only">(current)</span>
 							</a>
 						</li>

@@ -5,9 +5,9 @@ import board from '../assets/img/board.png';
 
 export const About = () => {
 	return (
-		<div>
+		<>
 			<Header />
-			<div className="background-about">
+			<div className="background-about mt-5">
 				<div className="container mb-5">
 					<div className="about mx-auto ">
 						<div className="row">
@@ -53,6 +53,6 @@ export const About = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 };
