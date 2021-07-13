@@ -10,21 +10,30 @@ export const Board = () => {
 	const [viewBoard, setViewBoard] = useState([]);
 
 	useEffect(() => {
-		const loadBoard = async () => {
-			const resp = await apiGetBoard(uid);
-			const data = await resp.json();
-			setViewBoard(data.board);
-			console.log(viewBoard);
-		};
-		loadBoard();
-	}, [viewBoard]);
+		apiGetBoard(uid)
+			.then((resp) => resp.json())
+			.then((resp) => {
+				setViewBoard(resp.board);
+			});
+	}, []);
 
 	return (
 		<>
 			<Header />
 			<div className="board-home">
 				<div className="content-board ">
-					{/* {viewBoard.map((x)=> console.log(x))} */}
+					{viewBoard.map((vb) => (
+						<div
+							className="box d-flex flex-column justify-content-around"
+							key={vb?.id}>
+							<p className="text-monospace text-center text-white">
+								{vb?.title}
+							</p>
+							<p className="text-monospace text-center text-white">
+								{vb?.note}
+							</p>
+						</div>
+					))}
 				</div>
 			</div>
 			<button

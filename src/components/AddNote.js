@@ -1,7 +1,24 @@
 import Modal from 'react-modal';
-import React from 'react';
+import React, { useState } from 'react';
 
 export const AddNote = ({ setButtonAddNote }) => {
+	const [inputValueAddNote, setInputValueAddNote] = useState({
+		title: '',
+		note: '',
+	});
+	const { title, note } = inputValueAddNote;
+	const handleInputAddNote = (e) => {
+		setInputValueAddNote({
+			...inputValueAddNote,
+			[e.target.name]: e.target.value,
+		});
+	};
+	const handleSubmitAddNote = (e) => {
+		e.preventDefault();
+
+		console.log('Enviado correctamente');
+	};
+
 	const handleExitNote = () => {
 		setButtonAddNote(false);
 	};
@@ -14,38 +31,44 @@ export const AddNote = ({ setButtonAddNote }) => {
 					labelledby: 'heading',
 					describedby: 'full_description',
 				}}>
-				<form>
-					<h1 className="text-center">Nueva nota</h1>
-					<div className="mb-3">
-						<label className="form-label">Titulo</label>
-						<input
-							placeholder="Titulo de la nota"
-							type="email"
-							className="form-control"
-							aria-describedby="emailHelp"
-						/>
-					</div>
-					<div className="mb-3">
-						<label className="form-label">Nota</label>
-						<textarea
-							className="form-control"
-							placeholder="Contenido de la nota"
-							rows="13"></textarea>
-					</div>
+				<div>
+					<form onSubmit={handleSubmitAddNote}>
+						<h1 className="text-center">Nueva nota</h1>
+						<div className="mb-3">
+							<label className="form-label">Titulo</label>
+							<input
+								placeholder="Titulo de la nota"
+								type="email"
+								className="form-control"
+								aria-describedby="emailHelp"
+								name="title"
+								value={title}
+								onChange={handleInputAddNote}
+							/>
+						</div>
+						<div className="mb-3">
+							<label className="form-label">Nota</label>
+							<textarea
+								className="form-control"
+								placeholder="Contenido de la nota"
+								rows="13"
+								name="note"
+								value={note}
+								onChange={handleInputAddNote}></textarea>
+						</div>
 
-					<div className="auth__buttons">
-						<button
-							onClick={handleExitNote}
-							type="submit"
-							className="btn btn-primary">
-							Enviar <i className="fas fa-arrow-circle-right"></i>
-						</button>
-
-						<button className="btn btn-danger mt-2" onClick={handleExitNote}>
-							Cerrar <i className="fas fa-sign-in-alt"></i>
-						</button>
-					</div>
-				</form>
+						<div className="auth__buttons">
+							<button type="submit" className="btn btn-primary">
+								Enviar <i className="fas fa-arrow-circle-right"></i>
+							</button>
+						</div>
+					</form>
+					<button
+						className="btn btn-danger mt-2 w-100"
+						onClick={handleExitNote}>
+						Cerrar <i className="fas fa-sign-in-alt"></i>
+					</button>
+				</div>
 			</Modal>
 		</>
 	);

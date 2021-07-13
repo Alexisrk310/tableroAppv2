@@ -21,7 +21,7 @@ const Header = () => {
 					<ul className="navbar-nav mx-sm-1 mx-md-auto">
 						<li className="nav-item pointer">
 							<a className="nav-link" href="/">
-								<i class="fas fa-home"></i>
+								<i className="fas fa-home"></i>
 							</a>
 						</li>
 						<li className="nav-item active pointer">
