@@ -1,4 +1,4 @@
-const { token } = JSON.parse(localStorage.getItem('login'));
+const { token } = JSON.parse(localStorage.getItem('login')) || '123';
 
 export const apiGetBoard = (id) => {
 	try {
