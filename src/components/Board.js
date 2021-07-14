@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { AddNote } from './AddNote';
 import Header from './shared/Header';
 import { apiGetBoard } from '../helpers/apiBoard';
+import { BoardData } from './BoardData';
 require('animate.css');
 
 const initialState = [
@@ -30,16 +31,7 @@ export const Board = () => {
 			<div className="board-home">
 				<div className="content-board ">
 					{viewBoard?.map((vb) => (
-						<div
-							className="box d-flex flex-column justify-content-around"
-							key={vb?.id}>
-							<p className="text-monospace text-center text-white">
-								{vb?.title}
-							</p>
-							<p className="text-monospace text-center text-white">
-								{vb?.note}
-							</p>
-						</div>
+						<BoardData vb={vb} />
 					))}
 				</div>
 			</div>

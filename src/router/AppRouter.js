@@ -17,9 +17,9 @@ export const AppRouter = () => {
 			<div>
 				<Switch>
 					<GuardRoute path="/board" component={Board} />
-					<Route path="/about" exact component={About} />
-					<Route path="/auth" exact component={Auth} />
-					<Route path="/" exact component={Home} />
+					<Route exact path="/about" component={About} />
+					<Route exact path="/auth" component={Auth} />
+					<Route exact path="/" component={Home} />
 
 					<Redirect to="/" />
 				</Switch>
