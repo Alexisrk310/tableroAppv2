@@ -4,10 +4,17 @@ import Header from './shared/Header';
 import { apiGetBoard } from '../helpers/apiBoard';
 require('animate.css');
 
+const initialState = [
+	{
+		title: 'xd',
+		note: 'asdasad'
+	}
+]
+
 export const Board = () => {
 	const { uid } = JSON.parse(localStorage.getItem('login'));
 	const [buttonAddNote, setButtonAddNote] = useState(false);
-	const [viewBoard, setViewBoard] = useState([]);
+	const [viewBoard, setViewBoard] = useState( [] || initialState );
 
 	useEffect(() => {
 		apiGetBoard(uid)
@@ -22,7 +29,7 @@ export const Board = () => {
 			<Header />
 			<div className="board-home">
 				<div className="content-board ">
-					{viewBoard.map((vb) => (
+					{viewBoard?.map((vb) => (
 						<div
 							className="box d-flex flex-column justify-content-around"
 							key={vb?.id}>
