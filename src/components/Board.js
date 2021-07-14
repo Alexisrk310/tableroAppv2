@@ -6,15 +6,15 @@ require('animate.css');
 
 const initialState = [
 	{
-		title: 'xd',
-		note: 'asdasad'
-	}
-]
+		title: '',
+		note: '',
+	},
+];
 
 export const Board = () => {
 	const { uid } = JSON.parse(localStorage.getItem('login'));
 	const [buttonAddNote, setButtonAddNote] = useState(false);
-	const [viewBoard, setViewBoard] = useState( [] || initialState );
+	const [viewBoard, setViewBoard] = useState([] || initialState);
 
 	useEffect(() => {
 		apiGetBoard(uid)
