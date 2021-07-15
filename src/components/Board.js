@@ -13,7 +13,7 @@ const initialState = [
 ];
 
 export const Board = () => {
-	const { uid } = JSON.parse(localStorage.getItem('login'));
+	const uid = JSON.parse(localStorage.getItem('uid'));
 	const [buttonAddNote, setButtonAddNote] = useState(false);
 	const [viewBoard, setViewBoard] = useState([] || initialState);
 
@@ -31,7 +31,7 @@ export const Board = () => {
 			<div className="board-home">
 				<div className="content-board ">
 					{viewBoard?.map((vb) => (
-						<BoardData vb={vb} />
+						<BoardData key={vb.id} vb={vb} />
 					))}
 				</div>
 			</div>
