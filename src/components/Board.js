@@ -31,7 +31,7 @@ export const Board = () => {
 			<div className="board-home">
 				<div className="content-board ">
 					{viewBoard?.map((vb) => (
-						<BoardData vb={vb} />
+						<BoardData key={vb.id} vb={vb} />
 					))}
 				</div>
 			</div>

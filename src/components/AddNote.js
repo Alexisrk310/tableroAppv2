@@ -1,6 +1,7 @@
 import Modal from 'react-modal';
 import React, { useState } from 'react';
 import { apiPostBoard } from '../helpers/apiBoard';
+import Swal from 'sweetalert2';
 
 export const AddNote = ({ setButtonAddNote }) => {
 	const [inputValueAddNote, setInputValueAddNote] = useState({
@@ -14,10 +15,17 @@ export const AddNote = ({ setButtonAddNote }) => {
 			[e.target.name]: e.target.value,
 		});
 	};
-	const handleSubmitAddNote = (e) => {
+	const handleSubmitAddNote = async (e) => {
 		e.preventDefault();
-		apiPostBoard(inputValueAddNote);
-    handleExitNote()
+		const data = await apiPostBoard(inputValueAddNote);
+		const resp = await data.json();
+		if (resp.ok === false) {
+			const { errors } = resp;
+
+			Swal.fire('Error', errors.note?.msg + ' ' + errors.title?.msg, 'error');
+		}
+		// console.log(resp);
+		handleExitNote();
 		console.log('Enviado correctamente');
 	};
 
