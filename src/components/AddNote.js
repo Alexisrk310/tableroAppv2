@@ -26,6 +26,7 @@ export const AddNote = ({ setButtonAddNote }) => {
 		}
 		// console.log(resp);
 		handleExitNote();
+		window.location.href = '/board';
 		console.log('Enviado correctamente');
 	};
 

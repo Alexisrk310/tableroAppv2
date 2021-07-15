@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { startLogin, startRegister } from '../actions/Auth';
 
-export const Auth = ({ history }) => {
+export const Auth = () => {
 	const [openAndClose, setOpenAndClose] = useState(false);
 	const [inputValueLogin, setInputValueLogin] = useState({
-		email: 'alexander@gmail.com',
-		password: '123456',
+		email: '',
+		password: '',
 	});
 	const [inputValueRegister, setInputValueRegister] = useState({
-		rName: 'alexis',
-		rEmail: 'alexisrk310@gmail.com',
-		rPassword: 'hermanos123',
+		rName: '',
+		rEmail: '',
+		rPassword: '',
 	});
 
 	const handleView = () => setOpenAndClose(!openAndClose);
@@ -32,16 +32,18 @@ export const Auth = ({ history }) => {
 	//LOGIN
 	const handleLogin = async (e) => {
 		e.preventDefault();
-		const reps = await startLogin(email, password);
-		reps.ok && history.push('/board');
+		const resp = await startLogin(email, password);
+		if (resp.ok) {
+			window.location.href = '/board';
+		}
 	};
 
 	//REGISTER
 	const handleRegister = async (e) => {
 		e.preventDefault();
-		const reps = await startRegister(rName, rEmail, rPassword);
-		if (reps.ok) {
-			history.push('/board');
+		const resp = await startRegister(rName, rEmail, rPassword);
+		if (resp.ok) {
+			window.location.href = '/board';
 		}
 	};
 	return (

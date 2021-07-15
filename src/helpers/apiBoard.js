@@ -31,3 +31,17 @@ export const apiPostBoard = (data) => {
 		console.log(error);
 	}
 };
+
+export const apiDeleteBoard = (id) => {
+	try {
+		const url = `http://localhost:8081/api/board/${id}`;
+		return fetch(url, {
+			method: 'DELETE',
+			headers: {
+				'x-token': getLogin
+			},
+		});
+	} catch (error) {
+		console.log(error);
+	}
+};

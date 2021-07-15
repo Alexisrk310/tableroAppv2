@@ -12,6 +12,7 @@ export const startLogin = async (email, password) => {
 	} else {
 		localStorage.setItem('token', JSON.stringify(user.token));
 		localStorage.setItem('uid', JSON.stringify(user.uid));
+		localStorage.setItem('name', JSON.stringify(user.name));
 	}
 
 	return resp;
@@ -26,7 +27,8 @@ export const startRegister = async (name, email, password) => {
 		Swal.fire('Error', msg, 'error');
 	} else {
 		localStorage.setItem('token', JSON.stringify(user.token));
-		localStorage.setItem("uid", JSON.stringify(user.uid));
+		localStorage.setItem('uid', JSON.stringify(user.uid));
+		localStorage.setItem('name', JSON.stringify(user.name));
 	}
 
 	return resp;
