@@ -3,11 +3,11 @@ import { Route, Redirect } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 
 const isAuthenticated = () => {
-	const user = JSON.parse(localStorage.getItem('login'));
+	const token = JSON.parse(localStorage.getItem('token'));
 	let isValid = true;
 
 	try {
-		isValid = jwt_decode(user.token);
+		isValid = jwt_decode(token);
 	} catch (err) {
 		return false;
 	}

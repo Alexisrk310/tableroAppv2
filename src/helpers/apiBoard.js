@@ -1,4 +1,4 @@
-const getLogin = JSON.parse(localStorage.getItem('login'));
+const getLogin = JSON.parse(localStorage.getItem('token'));
 
 export const apiGetBoard = (id) => {
 	try {
@@ -6,7 +6,7 @@ export const apiGetBoard = (id) => {
 		return fetch(url, {
 			method: 'GET',
 			headers: {
-				'x-token': getLogin?.token,
+				'x-token': getLogin
 			},
 		});
 	} catch (error) {
@@ -22,7 +22,7 @@ export const apiPostBoard = (data) => {
 			method: 'POST',
 			headers: {
 				'Content-type': 'application/json',
-				'x-token': getLogin?.token,
+				'x-token': getLogin
 			},
 
 			body: JSON.stringify(data),
