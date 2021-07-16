@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './shared/Header';
 import books from '../assets/img/intro.png';
 import board from '../assets/img/board.png';
+import { Footer } from './shared/Footer';
 
 export const About = () => {
 	return (
@@ -9,9 +10,9 @@ export const About = () => {
 			<Header />
 			<div className="background-about mt-5">
 				<div className="container mb-5">
-					<div className="about mx-auto ">
+					<div className="about mx-auto p-3 ">
 						<div className="row">
-							<div className="col-12 col-md-6 my-auto">
+							<div className="col-12 col-md-6 my-auto ">
 								Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
 								placeat ducimus, cupiditate tenetur assumenda ratione illo
 								aperiam accusamus dolor vel.
@@ -21,7 +22,7 @@ export const About = () => {
 							</div>
 						</div>
 					</div>
-					<div className="">
+					<div>
 						<h1 className="text-center mt-5">Como usar esta aplicación?</h1>
 						<p className="mt-5 mb-5">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, sed
@@ -40,8 +41,11 @@ export const About = () => {
 						</p>
 						<div className="about-2 mx-auto ">
 							<div className="row ">
-								<div className="col-12 col-md-6">
-									<img src={board} alt="books" className="board"></img>
+								<div className="col-12 col-md-6 d-flex justify-content-center align-items-center p-3">
+									<img
+										src={board}
+										alt="books"
+										className="board board-img "></img>
 								</div>
 								<div className="col-12 col-md-6 my-auto p-5 ">
 									Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
@@ -52,6 +56,7 @@ export const About = () => {
 						</div>
 					</div>
 				</div>
+				<Footer />
 			</div>
 		</>
 	);
