@@ -4,11 +4,10 @@ import board from '../assets/img/background-home.jpg';
 import board2 from '../assets/img/background-home-2.png';
 import board3 from '../assets/img/background-home-3.jpg';
 import board4 from '../assets/img/background-home-4.jpg';
-import note from '../assets/img/note.png';
-
+import boardItems1 from '../assets/img/board-2.png';
+import { Footer } from './shared/Footer';
 
 export const Home = () => {
-
 	return (
 		<>
 			<Header />
@@ -49,12 +48,12 @@ export const Home = () => {
 				</div>
 			</div>
 			<div className="container mt-5 mb-5">
-				<div className="note mx-auto ">
+				<div className="note">
 					<div className="row ">
-						<div className="col-12 col-md-6">
-							<img src={note} alt="books" className="board"></img>
+						<div className="col-12 col-md-6 d-flex justify-content-center">
+							<img src={boardItems1} alt="board" className="board"></img>
 						</div>
-						<div className="col-12 col-md-6 my-auto p-5 ">
+						<div className="col-12 col-md-6 my-auto p-5 d-flex justify-content-center">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
 							placeat ducimus, cupiditate tenetur assumenda ratione illo aperiam
 							accusamus dolor vel.
@@ -62,6 +61,7 @@ export const Home = () => {
 					</div>
 				</div>
 			</div>
+			<Footer />
 		</>
 	);
 };

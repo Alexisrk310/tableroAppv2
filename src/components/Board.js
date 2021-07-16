@@ -3,6 +3,7 @@ import { AddNote } from './AddNote';
 import Header from './shared/Header';
 import { apiGetBoard } from '../helpers/apiBoard';
 import { BoardData } from './BoardData';
+import { Footer } from './shared/Footer';
 require('animate.css');
 
 const initialState = [
@@ -42,6 +43,7 @@ export const Board = () => {
 					<AddNote setButtonAddNote={setButtonAddNote} />
 				)}
 			</button>
+			<Footer />
 		</>
 	);
 };
