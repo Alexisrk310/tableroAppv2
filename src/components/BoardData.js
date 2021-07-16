@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { apiDeleteBoard } from '../helpers/apiBoard';
-const moment = require('moment');
+const moment = require("moment");
 const Swal = require('sweetalert2');
 
 moment.locale('es');
