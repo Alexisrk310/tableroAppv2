@@ -1,10 +1,13 @@
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
 import { apiDeleteBoard } from '../helpers/apiBoard';
-const moment = require("moment");
+import { EditBoard } from './EditBoard';
+const moment = require('moment');
 const Swal = require('sweetalert2');
 
 moment.locale('es');
 export const BoardData = memo(({ vb }) => {
+	const [openEdit, setOpenEdit] = useState(false);
+
 	const deleteBoard = () => {
 		Swal.fire({
 			title: '¿Estas seguro?',
@@ -24,14 +27,20 @@ export const BoardData = memo(({ vb }) => {
 			}
 		});
 	};
+	const { id } = vb;
 
 	return (
-		<div className="box animate__animated animate__fadeInDownBig ">
+		<div className="box animate__animated animate__fadeInDownBig " key={vb.id}>
 			<div className="d-flex justify-content-end actions ">
-				<i class="fas fa-edit pointer action-items"></i>
+				<i
+					key={vb.id}
+					className="fas fa-edit pointer action-items"
+					onClick={() => setOpenEdit(true)}>
+					{openEdit === true && <EditBoard setOpenEdit={setOpenEdit} id={id} />}
+				</i>
 
 				<i
-					class="fas fa-times pointer action-items cancel"
+					className="fas fa-times pointer action-items cancel"
 					onClick={deleteBoard}></i>
 			</div>
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { startLogin, startRegister } from '../actions/Auth';
 
-export const Auth = () => {
+export const Auth = ({ history }) => {
 	const [openAndClose, setOpenAndClose] = useState(false);
 	const [inputValueLogin, setInputValueLogin] = useState({
 		email: '',
@@ -48,10 +48,14 @@ export const Auth = () => {
 	};
 	return (
 		<div className="body-auth">
-			<div className="auth mx-auto">
+			<div className="auth mx-auto p-5">
 				<div className="login">
 					{openAndClose === false ? (
-						<form onSubmit={handleLogin}>
+						<form className="mb-3" onSubmit={handleLogin}>
+							<i
+								className="fas fa-chevron-circle-left arrow-direction pointer"
+								onClick={() => history.push('/')}></i>
+
 							<h1>Inicia sesión</h1>
 							<div className="mb-3">
 								<label className="form-label">Correo Electronico</label>
@@ -74,14 +78,6 @@ export const Auth = () => {
 									value={password}
 								/>
 							</div>
-							<div className="mb-3 form-check">
-								<input
-									type="checkbox"
-									className="form-check-input"
-									id="Check1"
-								/>
-								<label className="form-check-label">Check me out</label>
-							</div>
 
 							<div className="auth__buttons">
 								<button type="submit" className="btn btn-primary">
@@ -96,7 +92,10 @@ export const Auth = () => {
 						</form>
 					) : (
 						<div className="register">
-							<form onSubmit={handleRegister}>
+							<form className="mb-3" onSubmit={handleRegister}>
+								<i
+									className="fas fa-chevron-circle-left arrow-direction pointer"
+									onClick={() => history.push('/')}></i>
 								<h1>Registrate</h1>
 								<div className="mb-3">
 									<label className="form-label input-long">Nombre</label>
@@ -130,17 +129,6 @@ export const Auth = () => {
 									/>
 								</div>
 
-								<div className="form-text">
-									We'll never share your email with anyone else.
-								</div>
-								<div className="mb-3 form-check">
-									<input
-										type="checkbox"
-										className="form-check-input"
-										id="Check1"
-									/>
-									<label className="form-check-label">Check me out</label>
-								</div>
 								<div className="auth__buttons">
 									<button type="submit" className="btn btn-primary">
 										Submit <i className="fas fa-arrow-circle-right"></i>

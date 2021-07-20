@@ -10,9 +10,9 @@ export const Footer = () => {
 						<p className="text-app">TableroApp © 2021</p>
 					</div>
 					<div className="col-sm-12 col-md-6 m-auto text-center">
-						<i class="fab fa-facebook-square mr-2 facebook pointer"></i>
-						<i class="fab fa-twitter-square mr-2 twitter pointer"></i>
-						<i class="fab fa-youtube-square youtube pointer"></i>
+						<i className="fab fa-facebook-square mr-2 facebook pointer"></i>
+						<i className="fab fa-twitter-square mr-2 twitter pointer"></i>
+						<i className="fab fa-youtube-square youtube pointer"></i>
 					</div>
 				</div>
 			</div>

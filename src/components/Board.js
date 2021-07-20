@@ -24,7 +24,7 @@ export const Board = () => {
 			.then((resp) => {
 				setViewBoard(resp.board);
 			});
-	}, []);
+	}, [uid]);
 
 	return (
 		<>
@@ -35,6 +35,7 @@ export const Board = () => {
 						<BoardData key={vb.id} vb={vb} />
 					))}
 				</div>
+				<Footer />
 			</div>
 			<button
 				className="add-note fas fa-plus-circle add-none-awesome"
@@ -43,7 +44,6 @@ export const Board = () => {
 					<AddNote setButtonAddNote={setButtonAddNote} />
 				)}
 			</button>
-			<Footer />
 		</>
 	);
 };
