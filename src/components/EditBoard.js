@@ -1,9 +1,31 @@
 import Modal from 'react-modal';
-import React, { useState } from 'react';
-import { apiPutBoard } from '../helpers/apiBoard';
+import React, { useEffect, useState } from 'react';
+import { apiPutBoard, apiGetB } from '../helpers/apiBoard';
 import Swal from 'sweetalert2';
 
 export const EditBoard = ({ setOpenEdit, id }) => {
+	// const resp = apiGetB(id).then((resp) =>
+	// 	resp.json().then((data) => {
+	// 		return data;
+	// 	})
+	// );
+
+	// resp.then((resp) => console.log(resp));
+	// console.log(resp);
+	useEffect(() => {
+		const renameInputValue = async () => {
+			const resp = await apiGetB(id);
+			const data = await resp.json();
+			const { title, note } = data.boardUnique;
+
+			setInputValueEditNote({
+				title,
+				note,
+			});
+		};
+
+		renameInputValue();
+	}, [id]);
 	const [inputValueEditNote, setInputValueEditNote] = useState({
 		title: '',
 		note: '',
@@ -28,8 +50,9 @@ export const EditBoard = ({ setOpenEdit, id }) => {
 			Swal.fire('Error', tablero.note?.msg + ' ' + tablero.title?.msg, 'error');
 		}
 		console.log(resp);
-		window.location.href = '/board';
-		handleExitNote();
+
+		// window.location.href = '/board';
+		// handleExitNote();
 		console.log('Enviado correctamente');
 	};
 

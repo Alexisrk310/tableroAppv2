@@ -13,6 +13,19 @@ export const apiGetBoard = (id) => {
 		console.log(error);
 	}
 };
+export const apiGetB = (id) => {
+	try {
+		const url = `http://localhost:8081/api/board/b/${id}`;
+		return fetch(url, {
+			method: 'GET',
+			headers: {
+				'x-token': getLogin,
+			},
+		});
+	} catch (error) {
+		console.log(error);
+	}
+};
 
 export const apiPostBoard = (data) => {
 	try {
