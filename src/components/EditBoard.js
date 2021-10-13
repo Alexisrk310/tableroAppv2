@@ -48,10 +48,19 @@ export const EditBoard = ({ setOpenEdit, id }) => {
 			const { tablero } = resp;
 
 			Swal.fire('Error', tablero.note?.msg + ' ' + tablero.title?.msg, 'error');
+		} else {
+			Swal.fire({
+				position: 'bottom-end',
+				icon: 'success',
+				title: 'El tablero se ha actualizado correctamente',
+				showConfirmButton: false,
+				timer: 1500,
+			});
 		}
 		console.log(resp);
-
-		// window.location.href = '/board';
+		setTimeout(() => {
+			window.location.href = '/board';
+		}, 1500);
 		// handleExitNote();
 		console.log('Enviado correctamente');
 	};

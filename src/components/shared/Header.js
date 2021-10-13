@@ -49,11 +49,15 @@ const Header = () => {
 								<i className="fas fa-home"></i>
 							</a>
 						</li>
-						<li className="nav-item  pointer">
-							<a className="nav-link" href="/board">
-								Tablero <span className="sr-only">(current)</span>
-							</a>
-						</li>
+						{token && (
+							<>
+								<li className="nav-item  pointer">
+									<a className="nav-link" href="/board">
+										Tablero <span className="sr-only">(current)</span>
+									</a>
+								</li>
+							</>
+						)}
 						<li className="nav-item pointer">
 							<a className="nav-link" href="/about">
 								Como usar
